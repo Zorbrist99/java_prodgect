@@ -20,8 +20,8 @@ public class DecodingMessage {
             i++;
         }
 
-        String decipheredMessage = stringBuilder.toString();
-        System.out.printf("Расшифрованное послание: %s", decipheredMessage);
+//        String decipheredMessage = stringBuilder.toString();
+        System.out.printf("Расшифрованное послание: %s", stringBuilder);
 
 
     }
