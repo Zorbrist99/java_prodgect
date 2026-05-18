@@ -14,7 +14,7 @@ public class ExpressParcel extends Parcel {
     }
 
     public double calculateDeliveryPrice() {
-        return deliveryHours < 24 ? super.calculateDeliveryPrice() + 500 : super.calculateDeliveryPrice();
+        return this.deliveryHours < 24 ? super.calculateDeliveryPrice() + 500 : super.calculateDeliveryPrice();
     }
 
     public void printInfo() {
