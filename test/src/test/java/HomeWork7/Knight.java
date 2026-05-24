@@ -1,0 +1,30 @@
+package HomeWork7;
+
+public class Knight extends Hero {
+    private int armor;
+
+    public Knight(String name, int level, int health, int armor) {
+        super(name, level, health);
+        setArmor(armor);
+    }
+
+    @Override
+    public String toString() {
+        return "Knight{" +
+                "armor=" + armor +
+                '}' + super.toString();
+    }
+
+    public int getArmor() {
+        return armor;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
+    @Override
+    public void attack() {
+        System.out.println("Рыцарь бьёт мечом!");
+    }
+}
