@@ -27,7 +27,7 @@ public class Hero {
     public void setLevel(int level) {
         if (level < 0) {
             throw new IllegalArgumentException("Значение level у персонажа не может быть отрицательным");
-        } else if (level > 100) {
+        } else if (level > MAX_LEVEL) {
             throw new IllegalArgumentException("Значение level у персонажа не может быть больше 100");
         } else {
             this.level = level;
@@ -62,8 +62,8 @@ public class Hero {
 
     public void levelUp() {
         level += 1;
-        if (health > 100) {
-            health = 100;
+        if (health > MAX_LEVEL) {
+            health = MAX_LEVEL;
         }
     }
 

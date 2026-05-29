@@ -2,7 +2,6 @@ package HomeWork7;
 
 public class App {
     static void main(String[] args) {
-
         Hero[] heroes = {
                 new Knight("Петя", 3, 90, 77)
                 , new Archer("Гриша", 32, 89, 3)
