@@ -4,15 +4,12 @@ import java.util.ArrayList;
 
 public class Winamp {
     static void main(String[] args) {
-        //Создали лист песен
-        ArrayList<String> listSongs = new ArrayList<>();
-        listSongs.add("Roma to Brooklyn");
-        listSongs.add("Sway");
-        listSongs.add("Let It Snow");
-
 
         //Создаем объект playList с названием и списком песен
-        PlayList playList = new PlayList("Jazz", listSongs);
+        PlayList playList = new PlayList("Jazz");
+        playList.addSongInPlayList("Roma to Brooklyn");
+        playList.addSongInPlayList("Sway");
+        playList.addSongInPlayList("Let It Snow");
 
         //Добавили песню в лист
         System.out.println(playList);
@@ -26,7 +23,7 @@ public class Winamp {
 
         //Обновление песни по индексу
         System.out.println(playList);
-        playList.updatingSongByIndex(2,"Don't Touch Me Nylon");
+        playList.updatingSongByIndex(2, "Don't Touch Me Nylon");
         System.out.println(playList);
 
         //Получение песни по индексу

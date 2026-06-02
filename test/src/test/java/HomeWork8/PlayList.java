@@ -6,9 +6,9 @@ public class PlayList {
     String namePlayList;
     ArrayList<String> listSongs;
 
-    public PlayList(String namePlayList, ArrayList<String> listSongs) {
+    public PlayList(String namePlayList) {
         this.namePlayList = namePlayList;
-        this.listSongs = listSongs;
+        this.listSongs = new ArrayList<>();
     }
 
     @Override
