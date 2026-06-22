@@ -36,7 +36,9 @@ public class TaskTracker {
     public void completeTask(String nameTask) {
         for (Task listTask : this.listTasks) {
             if (listTask.getNameTask().equals(nameTask)) {
-                listTask.setCompleted(true);
+                if (!listTask.isCompleted()) {
+                    listTask.setCompleted(true);
+                }
                 System.out.printf("Задачи: %s выполнена!", nameTask);
             }
         }

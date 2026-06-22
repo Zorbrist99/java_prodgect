@@ -33,7 +33,7 @@ public class Task {
         if (completed) {
             return MessageFormat.format("[x] {0}", nameTask);
         } else {
-            return MessageFormat.format("[_] {0}", nameTask);
+            return MessageFormat.format("[] {0}", nameTask);
         }
     }
 }
