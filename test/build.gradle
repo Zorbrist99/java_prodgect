@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     // Используем стабильную платформу JUnit 5/6
-    testImplementation platform('org.junit:junit-bom:6.0.0')
+    testImplementation platform('org.junit:junit-bom:5.11.4')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation("net.datafaker:datafaker:2.5.4")
@@ -20,17 +20,25 @@ dependencies {
 }
 
 // ВСЕ настройки тестов собираем строго в одном блоке
-test {
-    useJUnitPlatform() // Находит твои тесты
-    jvmArgs '-Dfile.encoding=UTF-8' // Обеспечивает UTF-8 при работе теста
-}
+//test {
+//    useJUnitPlatform() // Находит твои тесты
+////    jvmArgs '-Dfile.encoding=UTF-8' // Обеспечивает UTF-8 при работе теста
+//}
 
-// Настройка для запуска обычных методов main через JavaExec
-tasks.withType(JavaExec) {
-    jvmArgs '-Dfile.encoding=UTF-8'
-}
+//// Настройка для запуска обычных методов main через JavaExec
+//tasks.withType(JavaExec) {
+//    jvmArgs '-Dfile.encoding=UTF-8'
+//}
+//
+//// Говорим компилятору читать и собирать файлы *.java строго в UTF-8
+//tasks.withType(JavaCompile) {
+//    options.encoding = 'UTF-8'
+//}
 
-// Говорим компилятору читать и собирать файлы *.java строго в UTF-8
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
 }
