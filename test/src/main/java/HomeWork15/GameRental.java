@@ -64,9 +64,7 @@ public class GameRental {
     }
 
     public int calculateCost(String name, int days) {
-        if (days <= 0) {
-            throw new IllegalArgumentException("Количество дней аренды не может быть меньше или равно 0");
-        }
+        if (days <= 0) throw new IllegalArgumentException("Количество дней аренды не может быть меньше или равно 0");
         for (BoardGame s : games) {
             if (s.getGameName().equals(name)) {
                 return s.getCostRentOneDay() * days;
@@ -75,8 +73,8 @@ public class GameRental {
         throw new IllegalArgumentException("Данной игры нет в списке");
     }
 
-    public void reset(){
-        for (BoardGame s: games){
+    public void reset() {
+        for (BoardGame s : games) {
             s.setGameRented(false);
         }
     }
