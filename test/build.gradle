@@ -25,24 +25,12 @@ dependencies {
     implementation("com.github.lalyos:jfiglet:0.0.8")
     testImplementation "io.cucumber:cucumber-java:7.18.0"
     testImplementation "io.cucumber:cucumber-junit-platform-engine:7.18.0"
+    testImplementation("io.rest-assured:rest-assured:6.0.0")
+    testImplementation("org.projectlombok:lombok:1.18.46")
+    implementation ("com.fasterxml.jackson.core:jackson-databind:2.18.2")
+
 
 }
-
-// ВСЕ настройки тестов собираем строго в одном блоке
-//test {
-//    useJUnitPlatform() // Находит твои тесты
-////    jvmArgs '-Dfile.encoding=UTF-8' // Обеспечивает UTF-8 при работе теста
-//}
-
-//// Настройка для запуска обычных методов main через JavaExec
-//tasks.withType(JavaExec) {
-//    jvmArgs '-Dfile.encoding=UTF-8'
-//}
-//
-//// Говорим компилятору читать и собирать файлы *.java строго в UTF-8
-//tasks.withType(JavaCompile) {
-//    options.encoding = 'UTF-8'
-//}
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
