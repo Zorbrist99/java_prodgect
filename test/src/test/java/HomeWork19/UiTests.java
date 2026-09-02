@@ -1,36 +1,37 @@
 package HomeWork19;
 
+import HomeWork19.pages.LoginPage;
+import HomeWork19.pages.MainPage;
+import HomeWork19.pages.SecureAreaPage;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-
-public class UiTests {
+public class UiTests extends TestBase {
+    MainPage mainPage = new MainPage();
+    LoginPage loginPage = new LoginPage();
+    SecureAreaPage secureAreaPage = new SecureAreaPage();
 
     @Test
     void successfulAuthorizationTest() {
-        open("https://the-internet.herokuapp.com/");
-        $("#content").$(byText("Form Authentication")).click();
-        $("#content").shouldHave(text("Login Page")).shouldBe(visible);
-        $("#username").setValue("tomsmith");
-        $("#password").setValue("SuperSecretPassword!");
-        $(".radius").click();
-        $("#flash").shouldHave(text("You logged into a secure area!")).shouldBe(visible);
-        $(".button").shouldHave(text("Logout")).shouldBe(visible);
-        $(".button").$(byText("Logout")).click();
-        $("#content").shouldHave(text("Login Page")).shouldBe(visible);
+        mainPage.openPage()
+                .selectAccessibleExample("Form Authentication");
+        loginPage.searchTextForMainPage("Login Page")
+                .setUserName("tomsmith")
+                .setPassword("SuperSecretPassword!")
+                .clickLoginButton();
+        secureAreaPage.searchTextForTopOfSecureAreaPage("You logged into a secure area!")
+                .checkingForPresenceOfButton()
+                .clickLogoutButton();
+        loginPage.searchTextForMainPage("Login Page");
     }
 
     @Test
     void unsuccessfulAuthorizationTest() {
-        open("https://the-internet.herokuapp.com/");
-        $("#content").$(byText("Form Authentication")).click();
-        $("#page-footer").shouldHave(text("Elemental Selenium")).shouldBe(visible);
-        $("#username").setValue("admin");
-        $("#password").setValue("1234!");
-        $(".radius").click();
-        $("#flash").shouldHave(text("Your username is invalid!")).shouldBe(visible);
+        mainPage.openPage()
+                .selectAccessibleExample("Form Authentication");
+        loginPage.searchTextForFooterPage("Elemental Selenium")
+                .setUserName("admin")
+                .setPassword("1234!")
+                .clickLoginButton()
+                .searchTextForTopOfPage("Your username is invalid!");
     }
 }
