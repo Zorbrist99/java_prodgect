@@ -28,7 +28,7 @@ dependencies {
     testImplementation("io.rest-assured:rest-assured:6.0.0")
     testImplementation("org.projectlombok:lombok:1.18.46")
     implementation ("com.fasterxml.jackson.core:jackson-databind:2.18.2")
-
+    implementation("com.codeborne:selenide:7.18.0")
 
 }
 
