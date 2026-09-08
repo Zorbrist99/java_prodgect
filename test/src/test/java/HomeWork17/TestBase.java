@@ -11,10 +11,4 @@ public class TestBase {
         RestAssured.baseURI = "https://serverest.dev";
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
     }
-
-    @BeforeEach
-    void setupEach(){
-
-
-    }
 }

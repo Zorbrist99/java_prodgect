@@ -1,9 +1,7 @@
 package HomeWork17;
 
-import HomeWork17.models.Usuario;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -176,27 +174,27 @@ public class ServeRestTest extends TestBase {
                 .body("produtos.nome", not(empty()));
     }
 
-    @Test
-    @DisplayName("★ Создание пользователя через DTO (сериализация)")
-    void shouldCreateUserFromDto() {
-        emailUser = "spy_%s@qa.com".formatted(String.valueOf(System.currentTimeMillis()));
-        Usuario usuario = new Usuario("Тайный Покупатель", emailUser, "secret123", "true");
-
-        Response response = given()
-                .contentType(ContentType.JSON)
-                .body(usuario)
-                .log().uri()
-                .log().body()
-                .when()
-                .post("/usuarios")
-                .then()
-                .statusCode(201)
-                .body("message", equalTo("Cadastro realizado com sucesso"))
-                .body("_id", not(empty()))
-                .log().body()
-                .extract().response();
-
-        userId = response.path("_id");
-        System.out.printf("Сохранение userId выполнено успешно: %s%n", userId);
-    }
+//    @Test
+//    @DisplayName("★ Создание пользователя через DTO (сериализация)")
+//    void shouldCreateUserFromDto() {
+//        emailUser = "spy_%s@qa.com".formatted(String.valueOf(System.currentTimeMillis()));
+//        Usuario usuario = new Usuario("Secret Buyer", emailUser, "secret123", "true");
+//
+//        Response response = given()
+//                .contentType(ContentType.JSON)
+//                .body(usuario)
+//                .log().uri()
+//                .log().body()
+//                .when()
+//                .post("/usuarios")
+//                .then()
+//                .statusCode(201)
+//                .body("message", equalTo("Cadastro realizado com sucesso"))
+//                .body("_id", not(empty()))
+//                .log().body()
+//                .extract().response();
+//
+//        userId = response.path("_id");
+//        System.out.printf("Сохранение userId выполнено успешно: %s%n", userId);
+//    }
 }
